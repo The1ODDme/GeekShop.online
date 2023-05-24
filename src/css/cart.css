@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.cart-page {
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Roboto', sans-serif;
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .cart-item-image {
+    width: 50px;
+    height: auto;
+  }
+  
+  .cart-item-remove {
+    margin-top: 10px;
+    color: #f00;
+    cursor: pointer;
+  }
+  
+  .cart-item-quantity {
+    width: 50px;
+  }
+  
+  .cart-checkout {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cart-checkout:hover {
+    background-color: #007BFF;
+  }
+  

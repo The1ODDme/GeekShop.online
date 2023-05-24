@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.product-card {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 31%;
+    margin-left: 1.7%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #4f4f4f;
+    border-radius: 3px;
+    border: 1px solid #939393;
+    border-radius: 2px;
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.01);
+  }
+
+  .product-card:last-child {
+    margin-right: 0;
+  }
+  
+  .product-card__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-card__name {
+    font-size: 1.5em;
+    color: #554B4B;
+    margin-bottom: 10px;
+  }
+  
+  .product-card__button {
+    font-size: large;
+    background-color: #554B4B;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    width:50%;
+    height: 2em;
+    background-color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .product-card__button:hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #0461c3;
+    cursor: pointer;
+  }
+  

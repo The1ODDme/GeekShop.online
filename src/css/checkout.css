@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.payment-form {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+  }
+  .payment-form h1{
+    text-align: center;
+  }
+  .payment-form input,
+  .payment-form select,
+  .payment-form button {
+    font-family: 'Roboto', sans-serif;
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  .name-fields {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .name-fields input {
+    width: 48%;
+  }
+  
+  .payment-form button {
+    background-color: #007BFF; 
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .payment-form button:hover {
+    background-color: #126dce;
+  }
+  

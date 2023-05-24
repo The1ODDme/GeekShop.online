@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.category-page {
+    margin-right: auto;
+    margin-left: auto;
+    width: 94%;
+  }
+  .category-page-content {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+  .category-page h1 {
+    font-family: 'Press Start 2P';
+    font-size: 24px;
+    margin-left: 5%;
+  }
+  .category-list {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+    width: 20%;
+    padding: 20px;
+  }
+  
+  .category-list h2 {
+    margin-bottom: 20px;
+  }
+  
+  .category-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category-list li {
+    padding: 3px;
+    float: right;
+    width: 70%;
+    border-right: 1px solid #c6c6c6;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .category-list li:hover {
+    color: #0077ff;
+    border-right: 1px solid #0077ff;
+  }
+  
+  .product-list {
+    width: 75%;
+    padding: 20px;
+  }
+  
+  /* Стили для мобильных устройств */
+  @media (max-width: 767px) {
+    .category-page {
+      flex-direction: column;
+    }
+  
+    .category-list {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #000;
+    }
+  
+    .product-list {
+      width: 100%;
+    }
+  }
+  

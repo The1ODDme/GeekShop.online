@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100&family=Press+Start+2P&display=swap');
+.main-column{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+}
+
+nav ul li:hover > ul {
+  display: inherit;
+}
+
+nav ul ul ul {
+  left: 100%;
+  top: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul ul a {
+  width: 200px;
+}
+
+.navigation-container {
+  border-bottom:1px solid rgb(212, 211, 211);
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Barlow', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #000000;
+}
+
+.logo-container {
+  justify-content: start;
+  height: 70px;
+  width: 125px;
+}
+
+.logo {
+  height: auto;
+}
+
+.search-container {
+  margin-left: -25%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  background-color: transparent;
+  font-family: 'Press Start 2P';
+  font-size: 0.8em;
+  height: 1.5em;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 8px 32px 8px 8px;
+  margin-right: 8px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+.cart-icon,
+.profile-icon,
+.settings-icon {
+  width: 34px;
+  color: #fff;
+}
+.cart-icon,
+.profile-icon,
+.settings-icon:hover {
+  width: 34px;
+  color: #5988e8;
+}
+.nav-items-container {
+  margin-right: -25%;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  
+}
+.nav-item {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #000000;
+}
+.nav-item:hover {
+  color: #0076f5;
+}
