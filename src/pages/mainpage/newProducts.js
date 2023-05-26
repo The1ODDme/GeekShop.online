@@ -25,7 +25,7 @@ const NewProducts = () => {
       <h1 className="new-products">Новинки</h1>
       <div className="products-section">
       {products.map((product) => (
-      <Link to={`/GeekShop/product/productId=${product.id}`}>
+      <Link to={`/GeekShop/product/${product.id}`}>
         <ProductCard
           id={product.id}
           imageSrc={product.picture}

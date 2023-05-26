@@ -1,6 +1,7 @@
 /* Table.css */
 .product-table {
-    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    width: 60%;
     border-collapse: collapse;
   }
   

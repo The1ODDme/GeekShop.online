@@ -19,7 +19,7 @@ const Navigation = () => {
         <Route path="/GeekShop/" element={<Layout />}>
           <Route index element={<MainPage />} />
           <Route path="categories" element={<CategoryPage />} />
-          <Route path="product/productId/:productId" element={<ProductPage />} />
+          <Route path="product/:productId" element={<ProductPage />} />
           <Route path="contacts" element={<ContactPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="profile" element={<Profile />} />

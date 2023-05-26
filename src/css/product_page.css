@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .product-page {
+    height: 34em;
     background-color: #ffffff;
     padding: 20px;
     border: 1px solid #dddddd;
@@ -8,7 +9,8 @@
   
   .product-page img {
     float: left;
-    max-width: 20%;
+    max-width: 27%;
+    height: 17em;
     padding: 20px;
   }
   
