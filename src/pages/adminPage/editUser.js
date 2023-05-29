@@ -19,6 +19,11 @@ const EditUser = ({ users }) => {
     console.log(`User: ${selectedUser}, New Role: ${newRole}`);
   };
 
+  const handleDeleteRole = () => {
+    // Обработка удаления роли
+    console.log('Удаление роли');
+  };
+
   return (
     <form onSubmit={handleSubmit} className="edit-user-form">
       <h2>Редактирование пользователя</h2>
@@ -30,14 +35,17 @@ const EditUser = ({ users }) => {
           </option>
         ))}
       </select>
-      <input
-        type="text"
-        name="role"
-        placeholder="Новая роль пользователя"
-        value={newRole}
-        onChange={handleRoleChange}
-      />
-      <button type="submit">Обновить роль</button>
+      <div className="role-input">
+        <input
+          type="text"
+          name="role"
+          placeholder="Новая роль пользователя"
+          value={newRole}
+          onChange={handleRoleChange}
+        />
+        <button type="submit">Добавить роль</button>
+      </div>
+      <button type="button" onClick={handleDeleteRole}>Удалить роль</button>
     </form>
   );
 };

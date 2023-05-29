@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import '../../css/signIn.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({
-    login: '',
+    email: '',
     password: '',
   });
 
@@ -16,8 +17,23 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Здесь вы можете отправить данные на сервер для аутентификации или обработать их как вам угодно.
-    console.log(credentials);
+
+    fetch('http://localhost:8080/GeekShop/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Обработка ответа от сервера
+        console.log(data);
+      })
+      .catch(error => {
+        // Обработка ошибок
+        console.error(error);
+      });
   };
 
   return (
@@ -26,9 +42,9 @@ const LoginPage = () => {
         <h2>Вход в аккаунт</h2>
         <input
           type="text"
-          name="login"
-          placeholder="Логин"
-          value={credentials.login}
+          name="email"
+          placeholder="Email"
+          value={credentials.email}
           onChange={handleInputChange}
         />
         <input
@@ -41,8 +57,8 @@ const LoginPage = () => {
         <button type="submit">Войти</button>
         <p className="register-link">
           Нет аккаунта?     
-          <Link to="signUp/"><br/>
-            Зарегестрируйтесь!
+          <Link to="/GeekShop/signUp"><br/>
+            Зарегистрируйтесь!
           </Link>
         </p>
       </form>

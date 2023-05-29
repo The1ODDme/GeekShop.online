@@ -8,19 +8,92 @@ const AddProduct = () => {
     description: '',
     category: '',
     image: '',
+    type: '',
+    weight: '',
+    material: '',
+    width: '',
+    height: '',
+    categoryId: ''
   });
 
   const handleInputChange = (event) => {
-    setProduct({
-      ...product,
-      [event.target.name]: event.target.value
-    });
+    const { name, value } = event.target;
+
+    if (name === "category") {
+      setProduct({
+        ...product,
+        category: value,
+        categoryId: getCategoryID(value)
+      });
+    } else {
+      setProduct({
+        ...product,
+        [name]: value
+      });
+    }
   };
 
-  const handleSubmit = (event) => {
+  const getCategoryID = (category) => {
+    switch (category) {
+      case 'Игрушки и игры':
+        return 1;
+      case 'Одежда и аксессуары':
+        return 2;
+      case 'Дом и кухня':
+        return 3;
+      case 'Постеры и принты':
+        return 4;
+      case 'Канцелярия':
+        return 5;
+      case 'Новые поступления':
+        return 6;
+      case 'Распродажа':
+        return 7;
+      default:
+        return '';
+    }
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Здесь вы можете отправить данные продукта на сервер или обработать их как вам угодно.
-    console.log(product);
+
+    // Создание JSON
+    const productJson = JSON.stringify(product);
+    console.log('Создаваемый JSON:', productJson);
+
+    try {
+      const response = await fetch('http://localhost:8080/GeekShop/createProduct', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: productJson
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Product created:', data);
+
+        // Обнуление формы
+        setProduct({
+          name: '',
+          price: '',
+          description: '',
+          category: '',
+          image: '',
+          type: '',
+          weight: '',
+          material: '',
+          width: '',
+          height: '',
+          categoryId: ''
+        });
+      } else {
+        console.log('Error creating product:', response.status);
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    }
   };
 
   return (
@@ -46,11 +119,51 @@ const AddProduct = () => {
         value={product.description}
         onChange={handleInputChange}
       />
+      <select
+        name="category"
+        value={product.category}
+        onChange={handleInputChange}
+      >
+        <option value="">Выберите категорию</option>
+        <option value="Игрушки и игры">Игрушки и игры</option>
+        <option value="Одежда и аксессуары">Одежда и аксессуары</option>
+        <option value="Дом и кухня">Дом и кухня</option>
+        <option value="Постеры и принты">Постеры и принты</option>
+        <option value="Канцелярия">Канцелярия</option>
+      </select>
       <input
         type="text"
-        name="category"
-        placeholder="Категория товара"
-        value={product.category}
+        name="type"
+        placeholder="Тип товара"
+        value={product.type}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="weight"
+        placeholder="Вес товара"
+        value={product.weight}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="material"
+        placeholder="Материал товара"
+        value={product.material}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="width"
+        placeholder="Ширина товара"
+        value={product.width}
+        onChange={handleInputChange}
+      />
+      <input
+        type="text"
+        name="height"
+        placeholder="Высота товара"
+        value={product.height}
         onChange={handleInputChange}
       />
       <div className="image-input">

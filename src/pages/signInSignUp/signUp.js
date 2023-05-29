@@ -1,26 +1,42 @@
 import React, { useState } from "react";
-import '../../css/signUp.css';
+import "../../css/signUp.css";
 
 const RegisterPage = () => {
   const [user, setUser] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    address: "",
+    password: "",
   });
 
   const handleInputChange = (event) => {
     setUser({
       ...user,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Здесь вы можете отправить данные на сервер для регистрации или обработать их как вам угодно.
-    console.log(user);
+    const jsonData = JSON.stringify(user);
+
+    fetch("http://localhost:8080/GeekShop/userRegistration", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: jsonData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Обработка ответа от сервера
+        console.log(data);
+      })
+      .catch((error) => {
+        // Обработка ошибок
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -49,17 +65,17 @@ const RegisterPage = () => {
           onChange={handleInputChange}
         />
         <input
-          type="password"
-          name="password"
-          placeholder="Пароль"
-          value={user.password}
+          type="text"
+          name="address"
+          placeholder="Адрес"
+          value={user.address}
           onChange={handleInputChange}
         />
         <input
           type="password"
-          name="confirmPassword"
-          placeholder="Подтвердите пароль"
-          value={user.confirmPassword}
+          name="password"
+          placeholder="Пароль"
+          value={user.password}
           onChange={handleInputChange}
         />
         <button type="submit">Зарегистрироваться</button>
