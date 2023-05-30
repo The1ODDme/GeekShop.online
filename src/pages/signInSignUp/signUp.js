@@ -32,6 +32,14 @@ const RegisterPage = () => {
       .then((data) => {
         // Обработка ответа от сервера
         console.log(data);
+        // Сброс значений полей формы
+        setUser({
+          firstname: "",
+          lastname: "",
+          email: "",
+          address: "",
+          password: "",
+        });
       })
       .catch((error) => {
         // Обработка ошибок

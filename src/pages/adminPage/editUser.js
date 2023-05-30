@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../../css/editUser.css';
 
-const EditUser = ({ users }) => {
+const EditUser = () => {
+  const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState('');
   const [newRole, setNewRole] = useState('');
+
+  useEffect(() => {
+    fetch("http://localhost:8080/GeekShop/listUsers")
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(error => console.log(error));
+  }, []);
 
   const handleUserChange = (event) => {
     setSelectedUser(event.target.value);
@@ -15,13 +23,43 @@ const EditUser = ({ users }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Здесь вы можете отправить данные на сервер или обработать их как вам угодно.
-    console.log(`User: ${selectedUser}, New Role: ${newRole}`);
+    // Отправка данных на сервер для добавления роли
+    const data = { userId: selectedUser, role: newRole };
+    fetch("http://localhost:8080/GeekShop/addRole", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log("Роль успешно добавлена");
+        } else {
+          console.log("Ошибка при добавлении роли");
+        }
+      })
+      .catch(error => console.log(error));
   };
 
   const handleDeleteRole = () => {
-    // Обработка удаления роли
-    console.log('Удаление роли');
+    // Отправка данных на сервер для удаления роли
+    const data = { userId: selectedUser, role: newRole };
+    fetch("http://localhost:8080/GeekShop/removeRole", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log("Роль успешно удалена");
+        } else {
+          console.log("Ошибка при удалении роли");
+        }
+      })
+      .catch(error => console.log(error));
   };
 
   return (
@@ -31,22 +69,21 @@ const EditUser = ({ users }) => {
         <option value="">Выберите пользователя</option>
         {users.map((user) => (
           <option key={user.id} value={user.id}>
-            {user.name}
+            {user.email} (Роли: {user.roles.join(", ")})
           </option>
         ))}
       </select>
-      <div class="role-input">
-        <input
-          type="text"
-          name="role"
-          placeholder="Новая роль пользователя"
-          value={newRole}
-          onChange={handleRoleChange}
-        />
+
+      <div className="role-input">
+        <select className="input" value={newRole} onChange={handleRoleChange}>
+          <option value="USER">USER</option>
+          <option value="MANAGER">MANAGER</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
         <br/>
-        <button type="submit" class="add-button">Добавить роль</button>
+        <button type="submit" className="add-button">Добавить роль</button>
       </div>
-      <button type="button" class="delete-button" onClick={handleDeleteRole}>Удалить роль</button>
+      <button type="button" className="delete-button" onClick={handleDeleteRole}>Удалить роль</button>
     </form>
   );
 };

@@ -10,9 +10,6 @@ const MainPage = () => {
     
     <div>
       <NewProducts />
-      <Sales />
-      <BestSellers />
-      <SocialIcons />  
     </div>
       
   );
