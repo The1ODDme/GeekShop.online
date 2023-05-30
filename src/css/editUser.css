@@ -24,16 +24,28 @@
   }
   
   .edit-user-form button {
-    padding: 10px;
-    background-color: #007BFF;
+    padding: 10px; 
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
-  .edit-user-form button:hover {
+  .role-input input{
+    width: 95%;
+  }
+  .add-button{
+    margin-bottom: 5px;
+    width: 50%;
+    background-color: #007BFF;
+  }
+  .delete-button {
+    width: 50%;
+    background-color: #e12e2e;
+  }
+  .add-button:hover {
     background-color: #0056b3;
   }
-  
+  .delete-button:hover {
+    background-color: #aa0101;
+  }

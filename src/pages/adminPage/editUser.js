@@ -35,7 +35,7 @@ const EditUser = ({ users }) => {
           </option>
         ))}
       </select>
-      <div className="role-input">
+      <div class="role-input">
         <input
           type="text"
           name="role"
@@ -43,9 +43,10 @@ const EditUser = ({ users }) => {
           value={newRole}
           onChange={handleRoleChange}
         />
-        <button type="submit">Добавить роль</button>
+        <br/>
+        <button type="submit" class="add-button">Добавить роль</button>
       </div>
-      <button type="button" onClick={handleDeleteRole}>Удалить роль</button>
+      <button type="button" class="delete-button" onClick={handleDeleteRole}>Удалить роль</button>
     </form>
   );
 };
