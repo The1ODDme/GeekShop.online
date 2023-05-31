@@ -21,7 +21,7 @@ const ProductCard = ({ imageSrc, name, price, id }) => {
         <img src={imageSrc} alt={name} className="product-card__image" />
         <div className="product-card__name">{name}</div>
         <button className="product-card__button">
-          {isHovered ? 'В корзину' : `${price} €.`}
+          {isHovered ? 'Купить' : `${price} €.`}
         </button>
       </div>
   );

@@ -4,6 +4,7 @@
     width:30%;
     margin-left: auto;
     margin-right: auto;
+    
     font-family: 'Press Start 2P';
     font-size: 1.5em;
     padding: 5px;
@@ -12,6 +13,7 @@
     width: 75%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 140px;
 }
 .products-section{ 
     width: 100%;

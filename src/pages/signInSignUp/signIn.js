@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import '../../css/signIn.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthProvider';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { setAuthenticated } = useContext(AuthContext);
+
   const [credentials, setCredentials] = useState({
     email: '',
     password: '',
   });
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
     setCredentials({
@@ -28,7 +33,22 @@ const LoginPage = () => {
       .then(response => response.json())
       .then(data => {
         // Обработка ответа от сервера
-        console.log(data);
+        if (data.success) {
+          setSuccessMessage('Успешная аутентификация!');
+          setCredentials({ email: '', password: '' }); // Обнуление формы
+
+          // Сохранение информации о сеансе в localStorage
+          localStorage.setItem('accessToken', data.accessToken);
+          localStorage.setItem('userRoles', data.userRoles);
+
+          // Установка флага аутентификации
+          setAuthenticated(true);
+
+          // Перенаправление на другую страницу
+          navigate('/dashboard');
+        } else {
+          setErrorMessage(data.message);
+        }
       })
       .catch(error => {
         // Обработка ошибок
@@ -57,10 +77,12 @@ const LoginPage = () => {
         <button type="submit">Войти</button>
         <p className="register-link">
           Нет аккаунта?     
-          <Link to="/GeekShop/signUp"><br/>
+          <Link to="/GeekShop/signUp">
             Зарегистрируйтесь!
           </Link>
         </p>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
       </form>
     </div>
   );

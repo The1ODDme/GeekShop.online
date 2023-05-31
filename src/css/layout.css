@@ -14,13 +14,20 @@ html, body {
   flex: 1;
 }
 
-.footer {
-  flex-shrink: 0;
+#footer {
+  display: none; /* Скрываем футер по умолчанию */
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  top: 1100px;
+  text-align: center;
+  border-top: 1px solid #ccc;
 }
+
 .footer {
-    background-color: #333;
+    background-color: #32963ff1;
     color: #fff;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
   }
   

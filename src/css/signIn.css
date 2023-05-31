@@ -48,4 +48,9 @@
     color: #007BFF;
     text-decoration: none;
   }
+  .success-message {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
   

@@ -58,7 +58,10 @@ const AddProduct = () => {
     event.preventDefault();
 
     // Создание JSON
-    const productJson = JSON.stringify(product);
+    const productJson = JSON.stringify({
+      ...product,
+      urlPicture: product.image // Используем поле image для установки значения urlPicture
+    });
     console.log('Создаваемый JSON:', productJson);
 
     try {
