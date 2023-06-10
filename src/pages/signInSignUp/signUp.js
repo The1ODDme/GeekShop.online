@@ -21,7 +21,7 @@ const RegisterPage = () => {
     event.preventDefault();
     const jsonData = JSON.stringify(user);
 
-    fetch("http://localhost:8080/GeekShop/userRegistration", {
+    fetch("/GeekShop/userRegistration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ const EditUser = () => {
   const [newRole, setNewRole] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:8080/GeekShop/listUsers")
+    fetch("/GeekShop/listUsers")
       .then(response => response.json())
       .then(data => setUsers(data))
       .catch(error => console.log(error));
@@ -25,7 +25,7 @@ const EditUser = () => {
     event.preventDefault();
     // Отправка данных на сервер для добавления роли
     const data = { userId: selectedUser, role: newRole };
-    fetch("http://localhost:8080/GeekShop/addRole", {
+    fetch("/addRole", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -45,7 +45,7 @@ const EditUser = () => {
   const handleDeleteRole = () => {
     // Отправка данных на сервер для удаления роли
     const data = { userId: selectedUser, role: newRole };
-    fetch("http://localhost:8080/GeekShop/removeRole", {
+    fetch("/removeRole", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

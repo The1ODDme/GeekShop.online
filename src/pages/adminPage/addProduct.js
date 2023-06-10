@@ -65,7 +65,7 @@ const AddProduct = () => {
     console.log('Создаваемый JSON:', productJson);
 
     try {
-      const response = await fetch('http://localhost:8080/GeekShop/createProduct', {
+      const response = await fetch('/GeekShop/createProduct', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

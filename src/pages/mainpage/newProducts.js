@@ -9,7 +9,7 @@ const NewProducts = () => {
     // Ваш запрос на получение данных из JSON
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8080/GeekShop/getAllProductCards');
+        const response = await fetch('/GeekShop/getAllProductCards');
         const data = await response.json();
         setProducts(data);
       } catch (error) {

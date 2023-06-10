@@ -14,7 +14,7 @@ class CategoryPage extends Component {
   }
 
   fetchProductCards() {
-    fetch('http://localhost:8080/GeekShop/getAllProductCards')
+    fetch('/GeekShop/getAllProductCards')
       .then(response => response.json())
       .then(data => {
         this.setState({ products: data });

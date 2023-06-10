@@ -23,7 +23,7 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:8080/GeekShop/login', {
+    fetch('/GeekShop/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

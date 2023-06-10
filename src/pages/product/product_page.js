@@ -10,7 +10,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/GeekShop/product?productId=${productId}`);
+        const response = await fetch(`/GeekShop/product?productId=${productId}`);
         const data = await response.json();
         setProduct(data);
       } catch (error) {
