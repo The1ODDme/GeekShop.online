@@ -25,7 +25,7 @@ const EditUser = () => {
     event.preventDefault();
     // Отправка данных на сервер для добавления роли
     const data = { userId: selectedUser, role: newRole };
-    fetch("/addRole", {
+    fetch("/GeekShop/addRole", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -45,7 +45,7 @@ const EditUser = () => {
   const handleDeleteRole = () => {
     // Отправка данных на сервер для удаления роли
     const data = { userId: selectedUser, role: newRole };
-    fetch("/removeRole", {
+    fetch("/GeekShop/removeRole", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
